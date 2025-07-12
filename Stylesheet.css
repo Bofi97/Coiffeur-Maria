@@ -2838,6 +2838,34 @@ html {
 
 /* Mobile optimizations for new modal */
 @media (max-width: 768px) {
+    .booking-popup {
+        width: 98%;
+        max-height: 98vh;
+        margin: 1vh auto;
+    }
+
+    .booking-header {
+        padding: 15px 20px;
+    }
+
+    .booking-progress {
+        padding: 15px;
+    }
+
+    .progress-step span {
+        font-size: 0.7rem;
+    }
+
+    .step-number {
+        width: 25px;
+        height: 25px;
+        font-size: 0.8rem;
+    }
+
+    .booking-step {
+        padding: 20px;
+    }
+
     .service-grid {
         grid-template-columns: 1fr;
         gap: 15px;
@@ -2864,13 +2892,35 @@ html {
     }
 
     .booking-footer {
+        padding: 15px 20px;
         flex-direction: column;
         gap: 10px;
+        /* Ensure footer is always visible */
+        position: sticky;
+        bottom: 0;
+        background: rgba(214, 51, 132, 0.05);
+        border-top: 1px solid rgba(214, 51, 132, 0.2);
+        z-index: 100;
     }
 
     .btn-secondary, .btn-primary, .btn-confirm {
         width: 100%;
         justify-content: center;
+        padding: 15px 20px;
+        font-size: 1rem;
+        min-height: 50px;
+        /* Ensure buttons are always visible and clickable */
+        position: relative;
+        z-index: 101;
+        /* Force visibility on mobile */
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    /* Specific mobile button visibility */
+    #nextBtn, #prevBtn, #confirmBtn {
+        display: flex !important;
     }
 
     .form-row {
@@ -2886,12 +2936,50 @@ html {
         max-height: 100vh;
         margin: 0;
         border-radius: 0;
+        border: none;
+    }
+
+    .booking-header {
+        padding: 12px 15px;
+    }
+
+    .booking-title h2 {
+        font-size: 1.2rem;
+    }
+
+    .booking-progress {
+        padding: 12px;
+    }
+
+    .progress-step {
+        gap: 5px;
+    }
+
+    .progress-step span {
+        font-size: 0.65rem;
+    }
+
+    .step-number {
+        width: 22px;
+        height: 22px;
+        font-size: 0.75rem;
+    }
+
+    .booking-step {
+        padding: 15px;
+    }
+
+    .step-header h3 {
+        font-size: 1.1rem;
+        flex-direction: column;
+        gap: 5px;
     }
 
     .service-card {
         flex-direction: column;
         text-align: center;
         gap: 10px;
+        padding: 12px;
     }
 
     .service-icon {
@@ -2902,6 +2990,35 @@ html {
         flex-direction: column;
         gap: 5px;
         align-items: center;
+    }
+
+    .booking-footer {
+        padding: 12px 15px;
+        /* Extra emphasis for very small screens */
+        background: var(--gradient-primary);
+        border-top: 2px solid var(--primary-pink);
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+
+    .btn-secondary, .btn-primary, .btn-confirm {
+        padding: 18px 20px;
+        font-size: 1.1rem;
+        min-height: 55px;
+        border-radius: 12px;
+        font-weight: 700;
+        /* Force visibility */
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* Ensure content doesn't get hidden behind fixed footer */
+    .booking-content {
+        padding-bottom: 80px;
     }
 }
 
