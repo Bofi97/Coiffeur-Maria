@@ -413,7 +413,22 @@
                         background: white !important;
                         color: #333 !important;
                         padding: 20px !important;
-                        border-top: 3px solid var(--primary-pink) !important;
+                        border-top: 3px solid #a855f7 !important;
+                    `;
+                });
+
+                // Fix price display
+                const prices = document.querySelectorAll('.sold-price');
+                prices.forEach(price => {
+                    price.style.cssText = `
+                        display: inline-block !important;
+                        background: #a855f7 !important;
+                        color: white !important;
+                        padding: 5px 12px !important;
+                        border-radius: 15px !important;
+                        font-weight: 600 !important;
+                        font-size: 0.9rem !important;
+                        margin-bottom: 15px !important;
                     `;
                 });
 
@@ -423,25 +438,40 @@
                         display: inline-flex !important;
                         width: 100% !important;
                         justify-content: center !important;
+                        align-items: center !important;
+                        gap: 8px !important;
                         padding: 15px !important;
                         font-size: 1rem !important;
                         font-weight: 700 !important;
-                        background: var(--accent-gold) !important;
-                        color: var(--primary-dark) !important;
+                        background: #f39c12 !important;
+                        color: #1a1a1a !important;
                         border: none !important;
                         border-radius: 8px !important;
                         margin-top: 10px !important;
                         cursor: pointer !important;
                         touch-action: manipulation !important;
+                        text-decoration: none !important;
                     `;
                 });
             }
         }
 
         // Run on load and resize
-        document.addEventListener('DOMContentLoaded', fixMobile);
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, fixing mobile...');
+            fixMobile();
+
+            // Debug: Check if elements exist
+            console.log('Overlays found:', document.querySelectorAll('.sold-overlay').length);
+            console.log('Prices found:', document.querySelectorAll('.sold-price').length);
+            console.log('Buy buttons found:', document.querySelectorAll('.buy-btn').length);
+        });
+
         window.addEventListener('resize', fixMobile);
         window.addEventListener('orientationchange', fixMobile);
+
+        // Also run after a short delay to ensure everything is loaded
+        setTimeout(fixMobile, 1000);
 
         // Filter Functionality
         const filterButtons = document.querySelectorAll('.filter-btn');
