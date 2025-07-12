@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilder Shop - Maria Coiffeur</title>
+    <link rel="stylesheet" href="Stylesheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-cut"></i>
+                <span>Maria</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#services" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#gallery" class="nav-link">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">Bilder Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Kontakt</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section sold-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Bilder Shop</h1>
+            <p class="hero-subtitle">Kunstwerke & Erinnerungen zum Verkauf</p>
+            <div class="hero-decoration">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sold Pictures Gallery -->
+    <section class="sold-gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Verfügbare Werke</h2>
+                <p>Entdecken Sie unsere Kunstwerke und besonderen Momente - bereit für ein neues Zuhause</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Alle</button>
+                <button class="filter-btn" data-filter="artwork">Kunstwerke</button>
+                <button class="filter-btn" data-filter="photos">Fotos</button>
+                <button class="filter-btn" data-filter="vintage">Vintage</button>
+                <button class="filter-btn" data-filter="prints">Drucke</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="sold-gallery-grid">
+                <!-- Artwork Items -->
+                <div class="sold-item" data-category="artwork">
+                    <div class="sold-image">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop" alt="Abstrakte Komposition">
+                        <div class="sold-overlay">
+                            <div class="sold-info">
+                                <h3>Abstrakte Komposition</h3>
+                                <p>Acryl auf Leinwand, 40x50cm</p>
+                                <span class="sold-price">CHF 450</span>
+                                <button class="buy-btn" onclick="openPurchaseModal('artwork1', 'Abstrakte Komposition', 450)">
+                                    <i class="fas fa-shopping-cart"></i> Kaufen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sold-item" data-category="photos">
+                    <div class="sold-image">
+                        <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop" alt="Vintage Portrait">
+                        <div class="sold-overlay">
+                            <div class="sold-info">
+                                <h3>Vintage Portrait</h3>
+                                <p>Professioneller Druck, 30x40cm</p>
+                                <span class="sold-price">CHF 120</span>
+                                <button class="buy-btn" onclick="openPurchaseModal('photo1', 'Vintage Portrait', 120)">
+                                    <i class="fas fa-shopping-cart"></i> Kaufen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sold-item" data-category="artwork">
+                    <div class="sold-image">
+                        <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=400&fit=crop" alt="Moderne Skulptur">
+                        <div class="sold-overlay">
+                            <div class="sold-info">
+                                <h3>Moderne Skulptur</h3>
+                                <p>Keramik, handbemalt, 25cm</p>
+                                <span class="sold-price">CHF 680</span>
+                                <button class="buy-btn" onclick="openPurchaseModal('artwork2', 'Moderne Skulptur', 680)">
+                                    <i class="fas fa-shopping-cart"></i> Kaufen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sold-item" data-category="vintage">
+                    <div class="sold-image">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop" alt="Antiker Spiegel">
+                        <div class="sold-overlay">
+                            <div class="sold-info">
+                                <h3>Antiker Spiegel</h3>
+                                <p>Vintage Rahmen, restauriert</p>
+                                <span class="sold-price">CHF 320</span>
+                                <button class="buy-btn" onclick="openPurchaseModal('vintage1', 'Antiker Spiegel', 320)">
+                                    <i class="fas fa-shopping-cart"></i> Kaufen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sold-item" data-category="photos">
+                    <div class="sold-image">
+                        <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop" alt="Landschaftsfoto">
+                        <div class="sold-overlay">
+                            <div class="sold-info">
+                                <h3>Landschaftsfoto</h3>
+                                <p>Fine Art Print, 20x30cm</p>
+                                <span class="sold-price">CHF 85</span>
+                                <button class="buy-btn" onclick="openPurchaseModal('photo2', 'Landschaftsfoto', 85)">
+                                    <i class="fas fa-shopping-cart"></i> Kaufen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sold-item" data-category="artwork">
+                    <div class="sold-image">
+                        <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=400&fit=crop" alt="Ölgemälde">
+                        <div class="sold-overlay">
+                            <div class="sold-info">
+                                <h3>Ölgemälde</h3>
+                                <p>Öl auf Leinwand, 60x80cm</p>
+                                <span class="sold-price">CHF 750</span>
+                                <button class="buy-btn" onclick="openPurchaseModal('artwork3', 'Ölgemälde', 750)">
+                                    <i class="fas fa-shopping-cart"></i> Kaufen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Neue Drucke Kategorie -->
+                <div class="sold-item" data-category="prints">
+                    <div class="sold-image">
+                        <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop" alt="Kunstdruck Set">
+                        <div class="sold-overlay">
+                            <div class="sold-info">
+                                <h3>Kunstdruck Set</h3>
+                                <p>3er Set, je 15x20cm</p>
+                                <span class="sold-price">CHF 45</span>
+                                <button class="buy-btn" onclick="openPurchaseModal('prints1', 'Kunstdruck Set', 45)">
+                                    <i class="fas fa-shopping-cart"></i> Kaufen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sold-item" data-category="prints">
+                    <div class="sold-image">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop" alt="Poster Collection">
+                        <div class="sold-overlay">
+                            <div class="sold-info">
+                                <h3>Poster Collection</h3>
+                                <p>A3 Format, hochwertiger Druck</p>
+                                <span class="sold-price">CHF 25</span>
+                                <button class="buy-btn" onclick="openPurchaseModal('prints2', 'Poster Collection', 25)">
+                                    <i class="fas fa-shopping-cart"></i> Kaufen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back to Main Site Button -->
+            <div class="back-to-main">
+                <a href="index.html" class="btn-primary">
+                    <i class="fas fa-arrow-left"></i>
+                    Zurück zur Hauptseite
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Purchase Modal -->
+    <div id="purchaseModal" class="modal">
+        <div class="modal-content purchase-modal">
+            <div class="modal-header">
+                <h2>Kaufanfrage</h2>
+                <span class="close" onclick="closePurchaseModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="purchase-item-info">
+                    <h3 id="purchaseItemName">Produktname</h3>
+                    <p id="purchaseItemPrice">CHF 0</p>
+                </div>
+
+                <form id="purchaseForm" class="purchase-form">
+                    <div class="form-group">
+                        <label for="buyerName">Ihr Name *</label>
+                        <input type="text" id="buyerName" name="buyerName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="buyerEmail">E-Mail Adresse *</label>
+                        <input type="email" id="buyerEmail" name="buyerEmail" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="buyerPhone">Telefonnummer</label>
+                        <input type="tel" id="buyerPhone" name="buyerPhone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="buyerAddress">Lieferadresse *</label>
+                        <textarea id="buyerAddress" name="buyerAddress" rows="3" required placeholder="Strasse, PLZ Ort"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="buyerMessage">Nachricht (optional)</label>
+                        <textarea id="buyerMessage" name="buyerMessage" rows="3" placeholder="Besondere Wünsche oder Fragen..."></textarea>
+                    </div>
+
+                    <div class="payment-info">
+                        <h4>Zahlungsoptionen:</h4>
+                        <div class="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="twint" checked>
+                                <span>TWINT</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="bank">
+                                <span>Banküberweisung</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="cash">
+                                <span>Barzahlung bei Abholung</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="closePurchaseModal()">Abbrechen</button>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Kaufanfrage senden
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-cut"></i>
+                        <span>Maria Coiffeur</span>
+                    </div>
+                    <p>Professionelle Haarpflege mit Leidenschaft und Stil.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#gallery">Gallery</a></li>
+                        <li><a href="#" class="active">Sold Pictures</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +41 XX XXX XX XX</p>
+                        <p><i class="fas fa-envelope"></i> info@maria-coiffeur.ch</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Musterstrasse 123, 8000 Zürich</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Maria Coiffeur. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Filter Functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const soldItems = document.querySelectorAll('.sold-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                soldItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Purchase Modal Functions
+        let currentPurchaseItem = {};
+
+        function openPurchaseModal(itemId, itemName, itemPrice) {
+            currentPurchaseItem = { id: itemId, name: itemName, price: itemPrice };
+
+            document.getElementById('purchaseItemName').textContent = itemName;
+            document.getElementById('purchaseItemPrice').textContent = `CHF ${itemPrice}`;
+
+            const modal = document.getElementById('purchaseModal');
+            modal.style.display = 'block';
+
+            // Prevent body scroll
+            document.body.style.overflow = 'hidden';
+
+            // Focus first input
+            setTimeout(() => {
+                document.getElementById('buyerName').focus();
+            }, 100);
+        }
+
+        function closePurchaseModal() {
+            const modal = document.getElementById('purchaseModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+
+            // Reset form
+            document.getElementById('purchaseForm').reset();
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('purchaseModal');
+            if (event.target === modal) {
+                closePurchaseModal();
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('purchaseForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const purchaseData = {
+                item: currentPurchaseItem,
+                buyer: {
+                    name: formData.get('buyerName'),
+                    email: formData.get('buyerEmail'),
+                    phone: formData.get('buyerPhone'),
+                    address: formData.get('buyerAddress'),
+                    message: formData.get('buyerMessage'),
+                    payment: formData.get('payment')
+                }
+            };
+
+            // Create email content
+            const emailSubject = `Kaufanfrage: ${currentPurchaseItem.name}`;
+            const emailBody = `
+Neue Kaufanfrage erhalten:
+
+Produkt: ${currentPurchaseItem.name}
+Preis: CHF ${currentPurchaseItem.price}
+
+Käufer Informationen:
+Name: ${purchaseData.buyer.name}
+E-Mail: ${purchaseData.buyer.email}
+Telefon: ${purchaseData.buyer.phone || 'Nicht angegeben'}
+Lieferadresse: ${purchaseData.buyer.address}
+Zahlungsart: ${purchaseData.buyer.payment}
+
+Nachricht:
+${purchaseData.buyer.message || 'Keine Nachricht'}
+            `.trim();
+
+            // Open email client
+            const mailtoLink = `mailto:info@maria-coiffeur.ch?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            window.location.href = mailtoLink;
+
+            // Show success message
+            alert('Ihre Kaufanfrage wird in Ihrem E-Mail-Programm geöffnet. Bitte senden Sie die E-Mail ab, um Ihre Anfrage zu übermitteln.');
+
+            closePurchaseModal();
+        });
+    </script>
+</body>
+</html>
