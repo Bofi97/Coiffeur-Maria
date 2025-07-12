@@ -1391,6 +1391,34 @@
             // Call on resize and modal open
             window.addEventListener('resize', ensureButtonVisibility);
             setInterval(ensureButtonVisibility, 1000); // Check every second
+
+            // Fix gender buttons being covered on mobile
+            function fixMobileGenderButtons() {
+                if (window.innerWidth <= 768) {
+                    const genderBtns = document.querySelectorAll('.gender-btn');
+                    genderBtns.forEach(btn => {
+                        btn.style.position = 'relative';
+                        btn.style.zIndex = '1000';
+                        btn.style.pointerEvents = 'auto';
+                        btn.style.minHeight = '70px';
+                    });
+                }
+            }
+
+            // Run fix when modal opens
+            const modal = document.getElementById('bookingModal');
+            if (modal) {
+                const observer = new MutationObserver(function(mutations) {
+                    mutations.forEach(function(mutation) {
+                        if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+                            if (modal.style.display === 'block') {
+                                setTimeout(fixMobileGenderButtons, 100);
+                            }
+                        }
+                    });
+                });
+                observer.observe(modal, { attributes: true });
+            }
         });
     </script>
 </body>
