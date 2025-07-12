@@ -363,97 +363,228 @@
         </div>
     </section>
 
-    <!-- Booking Modal -->
-    <div id="bookingModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2><i class="fas fa-calendar-alt"></i> Termin vereinbaren</h2>
-                <span class="close" onclick="closeBookingModal()">&times;</span>
+    <!-- Neues Booking Modal -->
+    <div id="bookingModal" class="booking-modal">
+        <div class="booking-overlay" onclick="closeBookingModal()"></div>
+        <div class="booking-popup">
+            <!-- Header -->
+            <div class="booking-header">
+                <div class="booking-title">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h2>Termin vereinbaren</h2>
+                </div>
+                <button class="booking-close" onclick="closeBookingModal()">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-            <div class="modal-body">
-                <div class="booking-container">
-                    <!-- Service Selection -->
-                    <div class="service-selection">
-                        <h3>Wählen Sie Ihre Behandlung</h3>
-                        <div class="service-options">
-                            <div class="service-option" data-service="wash-cut" data-duration="60" data-price="65">
+
+            <!-- Progress Steps -->
+            <div class="booking-progress">
+                <div class="progress-step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <span>Service</span>
+                </div>
+                <div class="progress-step" data-step="2">
+                    <div class="step-number">2</div>
+                    <span>Datum & Zeit</span>
+                </div>
+                <div class="progress-step" data-step="3">
+                    <div class="step-number">3</div>
+                    <span>Kontakt</span>
+                </div>
+            </div>
+
+            <!-- Scrollable Content -->
+            <div class="booking-content">
+                <!-- Step 1: Service Selection -->
+                <div class="booking-step active" id="step1">
+                    <div class="step-header">
+                        <h3><i class="fas fa-cut"></i> Wählen Sie Ihren Service</h3>
+                        <p>Alle Preise verstehen sich inklusive Beratung und Styling</p>
+                    </div>
+
+                    <div class="service-grid">
+                        <div class="service-card" data-service="wash-cut" data-duration="60" data-price="65" onclick="selectService(this)">
+                            <div class="service-icon">
                                 <i class="fas fa-cut"></i>
+                            </div>
+                            <div class="service-info">
                                 <h4>Waschen & Schneiden</h4>
-                                <p class="service-time">Damen: 1h | Herren: 45min - ab CHF 65.-</p>
+                                <p>Professioneller Haarschnitt mit Styling</p>
+                                <div class="service-details">
+                                    <span class="duration"><i class="fas fa-clock"></i> 1 Stunde</span>
+                                    <span class="price">CHF 65</span>
+                                </div>
                             </div>
-                            <div class="service-option" data-service="wash-cut-style" data-duration="90" data-price="85">
+                        </div>
+
+                        <div class="service-card" data-service="wash-cut-style" data-duration="90" data-price="85">
+                            <div class="service-icon">
                                 <i class="fas fa-magic"></i>
-                                <h4>Waschen, Schneiden & Stylen</h4>
-                                <p class="service-time">Damen: 1.5h | Herren: 1h 15min - ab CHF 85.-</p>
                             </div>
-                            <div class="service-option" data-service="coloring" data-duration="60" data-price="120">
+                            <div class="service-info">
+                                <h4>Waschen, Schneiden & Styling</h4>
+                                <p>Komplettservice mit aufwendigem Styling</p>
+                                <div class="service-details">
+                                    <span class="duration"><i class="fas fa-clock"></i> 1.5 Stunden</span>
+                                    <span class="price">CHF 85</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="service-card" data-service="coloring" data-duration="60" data-price="120">
+                            <div class="service-icon">
                                 <i class="fas fa-palette"></i>
+                            </div>
+                            <div class="service-info">
                                 <h4>Färben</h4>
-                                <p class="service-time">Damen: 1h | Herren: 45min - ab CHF 120.-</p>
+                                <p>Professionelle Haarfarbe nach Wunsch</p>
+                                <div class="service-details">
+                                    <span class="duration"><i class="fas fa-clock"></i> 1 Stunde</span>
+                                    <span class="price">CHF 120</span>
+                                </div>
                             </div>
-                            <div class="service-option" data-service="perm" data-duration="120" data-price="150">
+                        </div>
+
+                        <div class="service-card" data-service="perm" data-duration="120" data-price="150">
+                            <div class="service-icon">
                                 <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <div class="service-info">
                                 <h4>Dauerwelle</h4>
-                                <p class="service-time">Damen: 2h | Herren: 1h 45min - ab CHF 150.-</p>
-                            </div>
-                        </div>
-
-                        <div class="gender-selection">
-                            <h4>Für wen ist der Termin?</h4>
-                            <div class="gender-options">
-                                <label class="gender-option">
-                                    <input type="radio" name="gender" value="female" checked>
-                                    <span><i class="fas fa-female"></i> Damen</span>
-                                </label>
-                                <label class="gender-option">
-                                    <input type="radio" name="gender" value="male">
-                                    <span><i class="fas fa-male"></i> Herren</span>
-                                </label>
+                                <p>Langanhaltende Locken und Volumen</p>
+                                <div class="service-details">
+                                    <span class="duration"><i class="fas fa-clock"></i> 2 Stunden</span>
+                                    <span class="price">CHF 150</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Calendar -->
-                    <div class="calendar-section">
-                        <h3>Wählen Sie Datum und Zeit</h3>
-                        <div class="calendar-container">
+                    <!-- Gender Selection -->
+                    <div class="gender-selection">
+                        <h4><i class="fas fa-user"></i> Für wen ist der Termin?</h4>
+                        <div class="gender-options">
+                            <button class="gender-btn active" data-gender="female">
+                                <i class="fas fa-female"></i>
+                                <span>Damen</span>
+                            </button>
+                            <button class="gender-btn" data-gender="male">
+                                <i class="fas fa-male"></i>
+                                <span>Herren</span>
+                                <small>-15 Min</small>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Date & Time Selection -->
+                <div class="booking-step" id="step2">
+                    <div class="step-header">
+                        <h3><i class="fas fa-calendar"></i> Wählen Sie Datum und Zeit</h3>
+                        <p>Verfügbare Termine in den nächsten 4 Wochen</p>
+                    </div>
+
+                    <div class="datetime-container">
+                        <!-- Calendar -->
+                        <div class="calendar-section">
                             <div class="calendar-header">
-                                <button class="nav-btn" onclick="previousMonth()">&lt;</button>
-                                <h4 id="currentMonth"></h4>
-                                <button class="nav-btn" onclick="nextMonth()">&gt;</button>
+                                <button class="nav-btn" onclick="previousMonth()">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <h4 id="currentMonth">Januar 2024</h4>
+                                <button class="nav-btn" onclick="nextMonth()">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
                             </div>
-                            <div class="calendar-grid" id="calendarGrid"></div>
+                            <div class="calendar-grid" id="calendarGrid">
+                                <!-- Calendar will be generated by JavaScript -->
+                            </div>
                         </div>
 
-                        <div class="time-slots" id="timeSlots">
-                            <h4>Verfügbare Zeiten</h4>
-                            <div class="slots-container" id="slotsContainer">
-                                <p>Bitte wählen Sie zuerst ein Datum</p>
+                        <!-- Time Slots -->
+                        <div class="time-section">
+                            <h4 id="selectedDateTitle">Bitte wählen Sie ein Datum</h4>
+                            <div class="time-slots" id="timeSlots">
+                                <!-- Time slots will be generated by JavaScript -->
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Booking Summary -->
-                <div class="booking-summary" id="bookingSummary" style="display: none;">
-                    <h3>Terminübersicht</h3>
-                    <div class="summary-details">
-                        <p><strong>Behandlung:</strong> <span id="selectedService"></span></p>
-                        <p><strong>Datum:</strong> <span id="selectedDate"></span></p>
-                        <p><strong>Zeit:</strong> <span id="selectedTime"></span></p>
-                        <p><strong>Dauer:</strong> <span id="selectedDuration"></span></p>
-                        <p><strong>Preis:</strong> <span id="selectedPrice"></span></p>
+                <!-- Step 3: Contact Information -->
+                <div class="booking-step" id="step3">
+                    <div class="step-header">
+                        <h3><i class="fas fa-user-edit"></i> Ihre Kontaktdaten</h3>
+                        <p>Wir benötigen Ihre Daten zur Terminbestätigung</p>
                     </div>
 
+                    <!-- Booking Summary -->
+                    <div class="booking-summary-card">
+                        <h4><i class="fas fa-check-circle"></i> Ihre Buchung</h4>
+                        <div class="summary-grid">
+                            <div class="summary-item">
+                                <span class="label">Service:</span>
+                                <span class="value" id="summaryService">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Datum:</span>
+                                <span class="value" id="summaryDate">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Zeit:</span>
+                                <span class="value" id="summaryTime">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Dauer:</span>
+                                <span class="value" id="summaryDuration">-</span>
+                            </div>
+                            <div class="summary-item total">
+                                <span class="label">Preis:</span>
+                                <span class="value" id="summaryPrice">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
                     <div class="contact-form">
-                        <h4>Ihre Kontaktdaten</h4>
-                        <input type="text" placeholder="Vor- und Nachname" required>
-                        <input type="tel" placeholder="Telefonnummer" required>
-                        <input type="email" placeholder="E-Mail Adresse" required>
-                        <textarea placeholder="Besondere Wünsche oder Anmerkungen"></textarea>
-                        <button class="confirm-booking">Termin bestätigen</button>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><i class="fas fa-user"></i> Vorname *</label>
+                                <input type="text" id="firstName" placeholder="Ihr Vorname" required>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-user"></i> Nachname *</label>
+                                <input type="text" id="lastName" placeholder="Ihr Nachname" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> E-Mail Adresse *</label>
+                            <input type="email" id="email" placeholder="ihre.email@beispiel.de" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Telefonnummer *</label>
+                            <input type="tel" id="phone" placeholder="+41 XX XXX XX XX" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-comment"></i> Besondere Wünsche</label>
+                            <textarea id="notes" placeholder="Haben Sie besondere Wünsche oder Anmerkungen? (optional)" rows="3"></textarea>
+                        </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Footer with Navigation -->
+            <div class="booking-footer">
+                <button class="btn-secondary" id="prevBtn" onclick="previousStep()" style="display: none;">
+                    <i class="fas fa-arrow-left"></i> Zurück
+                </button>
+                <button class="btn-primary" id="nextBtn" onclick="nextStep()">
+                    Weiter <i class="fas fa-arrow-right"></i>
+                </button>
+                <button class="btn-confirm" id="confirmBtn" onclick="confirmBooking()" style="display: none;">
+                    <i class="fas fa-calendar-check"></i> Termin bestätigen
+                </button>
             </div>
         </div>
     </div>
@@ -730,12 +861,72 @@
             document.body.style.overflow = 'hidden';
             document.body.style.position = 'fixed';
             document.body.style.width = '100%';
+            generateTimeSlots();
+            function generateTimeSlots() {
+    const timeSlotsContainer = document.getElementById('timeSlots');
+    if (!timeSlotsContainer) return;
+    
+    timeSlotsContainer.innerHTML = '';
+    const times = ['09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30'];
+    
+    times.forEach(time => {
+        const slotElement = document.createElement('div');
+        slotElement.className = 'time-slot';
+        slotElement.textContent = time;
+        slotElement.onclick = function() {
+            document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+            this.classList.add('selected');
+            selectedTime = time;
+        };
+        timeSlotsContainer.appendChild(slotElement);
+    });
+}
+            // Initialize new modal
+            currentStep = 1;
+            if (typeof updateStepDisplay === 'function') {
+                updateStepDisplay();
+            }
+
+            // Generate time slots immediately
+            generateTimeSlots();
 
             initializeCalendar();
             setupServiceSelection();
 
             // Focus for accessibility
             setTimeout(() => modal.focus(), 100);
+        }
+
+        function generateTimeSlots() {
+            const timeSlotsContainer = document.getElementById('timeSlots');
+            if (!timeSlotsContainer) return;
+
+            timeSlotsContainer.innerHTML = '';
+
+            const times = [
+                '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
+                '12:00', '12:30', '13:00', '13:30', '14:00', '14:30',
+                '15:00', '15:30', '16:00', '16:30', '17:00', '17:30'
+            ];
+
+            times.forEach(time => {
+                const slotElement = document.createElement('div');
+                slotElement.className = 'time-slot';
+                slotElement.textContent = time;
+                slotElement.onclick = function() {
+                    selectTimeSlot(this, time);
+                };
+                timeSlotsContainer.appendChild(slotElement);
+            });
+        }
+
+        function selectTimeSlot(element, time) {
+            document.querySelectorAll('.time-slot').forEach(slot => {
+                slot.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            selectedTime = time;
+            console.log('Time selected:', selectedTime);
         }
 
         function closeBookingModal() {
@@ -753,10 +944,34 @@
             selectedService = null;
             selectedDate = null;
             selectedTime = null;
-            document.getElementById('bookingSummary').style.display = 'none';
+            currentStep = 1;
+
+            // Reset old modal elements
+            const bookingSummary = document.getElementById('bookingSummary');
+            if (bookingSummary) bookingSummary.style.display = 'none';
+
             document.querySelectorAll('.service-option').forEach(option => {
                 option.classList.remove('selected');
             });
+
+            // Reset new modal elements
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+
+            document.querySelectorAll('.gender-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            const femaleBtn = document.querySelector('.gender-btn[data-gender="female"]');
+            if (femaleBtn) femaleBtn.classList.add('active');
+
+            selectedGender = 'female';
+
+            // Reset step display
+            if (typeof updateStepDisplay === 'function') {
+                updateStepDisplay();
+            }
         }
 
         function setupServiceSelection() {
@@ -786,6 +1001,31 @@
             });
 
             updateServiceDisplay(); // Initial display update
+
+            // Setup new modal service cards
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    document.querySelectorAll('.service-card').forEach(c => c.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedService = {
+                        type: this.dataset.service,
+                        name: this.querySelector('h4').textContent,
+                        duration: parseInt(this.dataset.duration),
+                        price: parseInt(this.dataset.price)
+                    };
+                    console.log('Service selected:', selectedService);
+                });
+            });
+
+            // Setup new modal gender buttons
+            document.querySelectorAll('.gender-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.gender-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    selectedGender = this.dataset.gender;
+                    console.log('Gender selected:', selectedGender);
+                });
+            });
         }
 
         function updateServiceDisplay() {
@@ -994,6 +1234,121 @@
             if (event.target === modal) {
                 closeBookingModal();
             }
+        });
+
+        // Fix for new modal functionality
+        function selectService(element) {
+            document.querySelectorAll('.service-card').forEach(c => c.classList.remove('selected'));
+            element.classList.add('selected');
+            selectedService = {
+                type: element.dataset.service,
+                name: element.querySelector('h4').textContent,
+                duration: parseInt(element.dataset.duration),
+                price: parseInt(element.dataset.price)
+            };
+            console.log('Service selected:', selectedService);
+        }
+
+        function selectGender(element) {
+            document.querySelectorAll('.gender-btn').forEach(b => b.classList.remove('active'));
+            element.classList.add('active');
+            selectedGender = element.dataset.gender;
+            console.log('Gender selected:', selectedGender);
+        }
+
+        // Step navigation for new modal
+        let currentStep = 1;
+
+        function nextStep() {
+            if (currentStep === 1 && !selectedService) {
+                alert('Bitte wählen Sie einen Service aus.');
+                return;
+            }
+            if (currentStep === 2 && (!selectedDate || !selectedTime)) {
+                alert('Bitte wählen Sie Datum und Zeit aus.');
+                return;
+            }
+
+            if (currentStep < 3) {
+                currentStep++;
+                updateStepDisplay();
+                if (currentStep === 3) {
+                    updateNewBookingSummary();
+                }
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateStepDisplay();
+            }
+        }
+
+        function updateStepDisplay() {
+            // Update progress steps
+            document.querySelectorAll('.progress-step').forEach((step, index) => {
+                if (index + 1 <= currentStep) {
+                    step.classList.add('active');
+                } else {
+                    step.classList.remove('active');
+                }
+            });
+
+            // Update step content
+            document.querySelectorAll('.booking-step').forEach((step, index) => {
+                if (index + 1 === currentStep) {
+                    step.classList.add('active');
+                } else {
+                    step.classList.remove('active');
+                }
+            });
+
+            // Update buttons
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const confirmBtn = document.getElementById('confirmBtn');
+
+            if (prevBtn) prevBtn.style.display = currentStep > 1 ? 'flex' : 'none';
+            if (nextBtn) nextBtn.style.display = currentStep < 3 ? 'flex' : 'none';
+            if (confirmBtn) confirmBtn.style.display = currentStep === 3 ? 'flex' : 'none';
+        }
+
+        function updateNewBookingSummary() {
+            if (selectedService && selectedDate && selectedTime) {
+                const duration = selectedGender === 'male' ? selectedService.duration - 15 : selectedService.duration;
+                const summaryService = document.getElementById('summaryService');
+                const summaryDate = document.getElementById('summaryDate');
+                const summaryTime = document.getElementById('summaryTime');
+                const summaryDuration = document.getElementById('summaryDuration');
+                const summaryPrice = document.getElementById('summaryPrice');
+
+                if (summaryService) summaryService.textContent = selectedService.name;
+                if (summaryDate) summaryDate.textContent = selectedDate.toLocaleDateString('de-DE');
+                if (summaryTime) summaryTime.textContent = selectedTime;
+                if (summaryDuration) summaryDuration.textContent = duration + ' Minuten';
+                if (summaryPrice) summaryPrice.textContent = 'CHF ' + selectedService.price;
+            }
+        }
+
+        // Initialize new modal when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click listeners to service cards
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    selectService(this);
+                });
+            });
+
+            // Add click listeners to gender buttons
+            document.querySelectorAll('.gender-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    selectGender(this);
+                });
+            });
+
+            // Initialize step display
+            updateStepDisplay();
         });
     </script>
 </body>
