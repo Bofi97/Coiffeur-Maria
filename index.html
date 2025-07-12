@@ -1349,6 +1349,35 @@
 
             // Initialize step display
             updateStepDisplay();
+
+            // Force button visibility on mobile
+            function ensureButtonVisibility() {
+                const nextBtn = document.getElementById('nextBtn');
+                const prevBtn = document.getElementById('prevBtn');
+                const confirmBtn = document.getElementById('confirmBtn');
+
+                if (window.innerWidth <= 768) {
+                    if (nextBtn) {
+                        nextBtn.style.display = 'flex';
+                        nextBtn.style.visibility = 'visible';
+                        nextBtn.style.opacity = '1';
+                    }
+                    if (prevBtn && currentStep > 1) {
+                        prevBtn.style.display = 'flex';
+                        prevBtn.style.visibility = 'visible';
+                        prevBtn.style.opacity = '1';
+                    }
+                    if (confirmBtn && currentStep === 3) {
+                        confirmBtn.style.display = 'flex';
+                        confirmBtn.style.visibility = 'visible';
+                        confirmBtn.style.opacity = '1';
+                    }
+                }
+            }
+
+            // Call on resize and modal open
+            window.addEventListener('resize', ensureButtonVisibility);
+            setInterval(ensureButtonVisibility, 1000); // Check every second
         });
     </script>
 </body>
