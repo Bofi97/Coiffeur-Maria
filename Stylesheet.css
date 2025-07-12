@@ -3521,6 +3521,84 @@ html {
         padding: 15px;
     }
 
+    /* Make sold items clickable on mobile */
+    .sold-item {
+        cursor: pointer;
+        position: relative;
+    }
+
+    /* Add touch indicator for mobile */
+    .sold-item::before {
+        content: '👆 Antippen für Details';
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 15px;
+        font-size: 0.7rem;
+        z-index: 10;
+        opacity: 0.8;
+    }
+
+    .sold-item:active .sold-overlay {
+        transform: translateY(0);
+    }
+
+    /* Always show buy button on mobile */
+    .sold-item .buy-btn {
+        display: inline-flex !important;
+        margin-top: 10px;
+    }
+
+    /* Alternative mobile layout for very small screens */
+    @media (max-width: 480px) {
+        .sold-item {
+            display: flex;
+            flex-direction: column;
+            height: auto;
+        }
+
+        .sold-image {
+            height: 200px;
+            position: relative;
+        }
+
+        .sold-overlay {
+            position: static !important;
+            transform: none !important;
+            background: white !important;
+            color: var(--primary-dark) !important;
+            padding: 15px !important;
+            border-top: 3px solid var(--primary-pink);
+        }
+
+        .sold-info h3 {
+            color: var(--primary-dark) !important;
+            font-size: 1.1rem;
+        }
+
+        .sold-info p {
+            color: var(--text-secondary) !important;
+            opacity: 1 !important;
+        }
+
+        .sold-price {
+            background: var(--primary-pink) !important;
+            color: white !important;
+        }
+
+        .buy-btn {
+            background: var(--accent-gold) !important;
+            color: var(--primary-dark) !important;
+            width: 100%;
+            justify-content: center;
+            padding: 12px !important;
+            font-size: 1rem !important;
+        }
+    }
+
     .back-to-main {
         margin-top: 30px;
         padding: 0 20px;
