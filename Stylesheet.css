@@ -3002,23 +3002,56 @@ html {
         left: 0;
         right: 0;
         z-index: 1000;
+        /* Ensure proper layout */
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
     }
 
     .btn-secondary, .btn-primary, .btn-confirm {
-        padding: 18px 20px;
-        font-size: 1.1rem;
-        min-height: 55px;
+        padding: 15px 20px;
+        font-size: 1rem;
+        min-height: 50px;
         border-radius: 12px;
         font-weight: 700;
-        /* Force visibility */
-        display: flex !important;
+        /* Force visibility but allow proper hiding */
         opacity: 1 !important;
         visibility: visible !important;
+        /* Remove conflicting display rules */
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Proper button visibility control */
+    .btn-secondary[style*="display: none"],
+    .btn-primary[style*="display: none"],
+    .btn-confirm[style*="display: none"] {
+        display: none !important;
+    }
+
+    .btn-secondary:not([style*="display: none"]),
+    .btn-primary:not([style*="display: none"]),
+    .btn-confirm:not([style*="display: none"]) {
+        display: flex !important;
     }
 
     /* Ensure content doesn't get hidden behind fixed footer */
     .booking-content {
-        padding-bottom: 80px;
+        padding-bottom: 120px;
+    }
+
+    /* Fix button overlap issue */
+    .booking-footer .btn-secondary,
+    .booking-footer .btn-primary,
+    .booking-footer .btn-confirm {
+        margin-bottom: 0;
+    }
+
+    /* Ensure only one button row is visible at a time */
+    .booking-footer {
+        min-height: 80px;
+        max-height: 120px;
+        overflow: hidden;
     }
 }
 
