@@ -724,13 +724,28 @@
         };
 
         function openBookingModal() {
-            document.getElementById('bookingModal').style.display = 'block';
+            const modal = document.getElementById('bookingModal');
+            modal.style.display = 'block';
+            // Prevent body scroll on mobile
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+
             initializeCalendar();
             setupServiceSelection();
+
+            // Focus for accessibility
+            setTimeout(() => modal.focus(), 100);
         }
 
         function closeBookingModal() {
-            document.getElementById('bookingModal').style.display = 'none';
+            const modal = document.getElementById('bookingModal');
+            modal.style.display = 'none';
+            // Restore body scroll
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+
             resetBooking();
         }
 
