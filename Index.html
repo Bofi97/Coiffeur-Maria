@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Maria's Coiffeur - Ihr Salon für Schönheit & Stil</title>
+        <link rel="stylesheet" href="Stylesheet.css">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="logo">
+                <i class="fas fa-cut"></i>
+                <h1>Maria's Coiffeur</h1>
+            </div>
+            <p class="hero-subtitle">Ihr persönlicher Salon für Schönheit & Stil</p>
+            <p class="hero-description">Maria ist eine leidenschaftliche Coiffeurin mit eigenem Studio. Erleben Sie professionelle Haarpflege in entspannter Atmosphäre.</p>
+            <button class="cta-button" onclick="openBookingModal()">
+                <i class="fas fa-calendar-alt"></i>
+                Termin vereinbaren
+            </button>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-cut"></i>
+                <span>Maria's</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#Kosten"><i class="fas fa-euro-sign"></i> Preise</a></li>
+                <li><a href="#Über-mich"><i class="fas fa-user"></i> Über mich</a></li>
+                <li><a href="#Bilder"><i class="fas fa-images"></i> Galerie</a></li>
+                <li><a href="#Shop"><i class="fas fa-shopping-bag"></i> Shop</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Pricing Section -->
+    <section id="Kosten" class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-euro-sign"></i> Unsere Preise</h2>
+                <p>Transparente Preise für erstklassige Leistungen</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Damen Services -->
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <i class="fas fa-female"></i>
+                        <h3>Damen</h3>
+                    </div>
+                    <div class="services-list">
+                        <div class="service-item">
+                            <span class="service-name">Waschen & Schneiden</span>
+                            <span class="service-price">ab CHF 65.-</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Färben & Styling</span>
+                            <span class="service-price">ab CHF 120.-</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Strähnen</span>
+                            <span class="service-price">ab CHF 95.-</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Hochsteckfrisur</span>
+                            <span class="service-price">ab CHF 80.-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Herren Services -->
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <i class="fas fa-male"></i>
+                        <h3>Herren</h3>
+                    </div>
+                    <div class="services-list">
+                        <div class="service-item">
+                            <span class="service-name">Waschen & Schneiden</span>
+                            <span class="service-price">ab CHF 45.-</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Bart trimmen</span>
+                            <span class="service-price">ab CHF 25.-</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Styling</span>
+                            <span class="service-price">ab CHF 35.-</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Komplett-Service</span>
+                            <span class="service-price">ab CHF 65.-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kinder Services -->
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <i class="fas fa-child"></i>
+                        <h3>Kinder</h3>
+                    </div>
+                    <div class="services-list">
+                        <div class="service-item">
+                            <span class="service-name">Kinderschnitt (bis 12 Jahre)</span>
+                            <span class="service-price">ab CHF 35.-</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Jugendliche (13-16 Jahre)</span>
+                            <span class="service-price">ab CHF 45.-</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Ersthaarschnitt</span>
+                            <span class="service-price">ab CHF 30.-</span>
+                        </div>
+                        <div class="service-item special">
+                            <span class="service-name">Familien-Rabatt verfügbar</span>
+                            <span class="service-price"><i class="fas fa-heart"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-note">
+                <p><i class="fas fa-info-circle"></i> Alle Preise verstehen sich als Richtpreise. Der finale Preis wird nach Beratung und Aufwand bestimmt.</p>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section id="Über-mich" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-user"></i> Über mich</h2>
+                <p>Lernen Sie Maria und ihr Studio kennen</p>
+            </div>
+
+            <div class="about-content">
+                <!-- Wer bin ich -->
+                <div class="about-card">
+                    <div class="about-text">
+                        <h3><i class="fas fa-heart"></i> Wer bin ich</h3>
+                        <p>Ciao! Ich bin Maria, eine temperamentvolle Italienerin mit einer grossen Leidenschaft für Haare und Schönheit. Seit über 15 Jahren verwandle ich die Träume meiner Kunden in wunderschöne Frisuren.</p>
+                        <p>Meine italienischen Wurzeln bringen nicht nur Temperament, sondern auch ein Gespür für Stil und Eleganz mit sich. Jeder Kunde ist für mich einzigartig, und ich liebe es, gemeinsam die perfekte Frisur zu finden.</p>
+                        <div class="credentials">
+                            <span class="credential"><i class="fas fa-certificate"></i> Eidg. Fähigkeitszeugnis</span>
+                            <span class="credential"><i class="fas fa-award"></i> 15+ Jahre Erfahrung</span>
+                            <span class="credential"><i class="fas fa-graduation-cap"></i> Weiterbildungen in Italien</span>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-user-circle"></i>
+                            <p>Maria's Foto</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mein Studio -->
+                <div class="studio-section">
+                    <h3><i class="fas fa-home"></i> Mein Studio</h3>
+                    <p>Willkommen in meinem gemütlichen Studio! Hier erwartet Sie eine entspannte Atmosphäre, in der Sie sich rundum wohlfühlen können.</p>
+
+                    <div class="studio-features">
+                        <div class="feature">
+                            <i class="fas fa-leaf"></i>
+                            <h4>Natürliche Produkte</h4>
+                            <p>Hochwertige, umweltfreundliche Haarpflegeprodukte</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-coffee"></i>
+                            <h4>Entspannte Atmosphäre</h4>
+                            <p>Geniessen Sie einen Kaffee während Ihrer Behandlung</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-clock"></i>
+                            <h4>Flexible Termine</h4>
+                            <p>Auch abends und am Wochenende nach Vereinbarung</p>
+                        </div>
+                    </div>
+
+                    <div class="studio-gallery">
+                        <div class="gallery-item">
+                            <div class="image-placeholder">
+                                <i class="fas fa-camera"></i>
+                                <p>Studio Eingang</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <div class="image-placeholder">
+                                <i class="fas fa-camera"></i>
+                                <p>Arbeitsplatz</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <div class="image-placeholder">
+                                <i class="fas fa-camera"></i>
+                                <p>Wartebereich</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wie alles begann -->
+                <div class="story-section">
+                    <h3><i class="fas fa-star"></i> Wie alles begann</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">2008</div>
+                            <div class="timeline-content">
+                                <h4>Die Ausbildung</h4>
+                                <p>Beginn meiner Coiffeur-Lehre in Zürich mit Bestnoten abgeschlossen</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2015</div>
+                            <div class="timeline-content">
+                                <h4>Weiterbildung in Italien</h4>
+                                <p>Spezialisierung auf mediterrane Schnitt- und Färbetechniken</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2020</div>
+                            <div class="timeline-content">
+                                <h4>Eigenes Studio</h4>
+                                <p>Eröffnung meines eigenen Studios - ein Traum wird wahr!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Gallery Section -->
+    <section id="Bilder" class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-images"></i> Unsere Galerie</h2>
+                <p>Entdecken Sie unsere schönsten Kreationen</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="image-placeholder">
+                        <i class="fas fa-cut"></i>
+                        <p>Moderne Damenfrisur</p>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>Eleganter Bob</h4>
+                        <p>Klassisch und zeitlos</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">
+                        <i class="fas fa-palette"></i>
+                        <p>Balayage Technik</p>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>Balayage Highlights</h4>
+                        <p>Natürliche Farbverläufe</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">
+                        <i class="fas fa-crown"></i>
+                        <p>Hochsteckfrisur</p>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>Brautfrisur</h4>
+                        <p>Für den schönsten Tag</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">
+                        <i class="fas fa-male"></i>
+                        <p>Herrenschnitt</p>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>Modern Gentleman</h4>
+                        <p>Stilvoller Businesslook</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">
+                        <i class="fas fa-rainbow"></i>
+                        <p>Kreative Farben</p>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>Fashion Colors</h4>
+                        <p>Mutig und ausdrucksstark</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder">
+                        <i class="fas fa-child"></i>
+                        <p>Kinderfrisur</p>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>Kinderschnitt</h4>
+                        <p>Spielerisch und süß</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="Shop" class="shop-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-shopping-bag"></i> Unser Shop</h2>
+                <p>Hochwertige Haarpflegeprodukte für zu Hause</p>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-pump-soap"></i>
+                    </div>
+                    <h4>Premium Shampoo</h4>
+                    <p>Für alle Haartypen geeignet</p>
+                    <span class="price">CHF 28.-</span>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-spray-can"></i>
+                    </div>
+                    <h4>Styling Spray</h4>
+                    <p>Langanhaltender Halt</p>
+                    <span class="price">CHF 22.-</span>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-oil-can"></i>
+                    </div>
+                    <h4>Haaröl</h4>
+                    <p>Intensive Pflege und Glanz</p>
+                    <span class="price">CHF 35.-</span>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h4>Repair Maske</h4>
+                    <p>Für strapaziertes Haar</p>
+                    <span class="price">CHF 32.-</span>
+                </div>
+            </div>
+
+            <div class="shop-note">
+                <p><i class="fas fa-info-circle"></i> Alle Produkte sind auch direkt im Studio erhältlich. Gerne berate ich Sie persönlich!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-calendar-alt"></i> Termin vereinbaren</h2>
+                <span class="close" onclick="closeBookingModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="booking-container">
+                    <!-- Service Selection -->
+                    <div class="service-selection">
+                        <h3>Wählen Sie Ihre Behandlung</h3>
+                        <div class="service-options">
+                            <div class="service-option" data-service="wash-cut" data-duration="60" data-price="65">
+                                <i class="fas fa-cut"></i>
+                                <h4>Waschen & Schneiden</h4>
+                                <p class="service-time">Damen: 1h | Herren: 45min - ab CHF 65.-</p>
+                            </div>
+                            <div class="service-option" data-service="wash-cut-style" data-duration="90" data-price="85">
+                                <i class="fas fa-magic"></i>
+                                <h4>Waschen, Schneiden & Stylen</h4>
+                                <p class="service-time">Damen: 1.5h | Herren: 1h 15min - ab CHF 85.-</p>
+                            </div>
+                            <div class="service-option" data-service="coloring" data-duration="60" data-price="120">
+                                <i class="fas fa-palette"></i>
+                                <h4>Färben</h4>
+                                <p class="service-time">Damen: 1h | Herren: 45min - ab CHF 120.-</p>
+                            </div>
+                            <div class="service-option" data-service="perm" data-duration="120" data-price="150">
+                                <i class="fas fa-sync-alt"></i>
+                                <h4>Dauerwelle</h4>
+                                <p class="service-time">Damen: 2h | Herren: 1h 45min - ab CHF 150.-</p>
+                            </div>
+                        </div>
+
+                        <div class="gender-selection">
+                            <h4>Für wen ist der Termin?</h4>
+                            <div class="gender-options">
+                                <label class="gender-option">
+                                    <input type="radio" name="gender" value="female" checked>
+                                    <span><i class="fas fa-female"></i> Damen</span>
+                                </label>
+                                <label class="gender-option">
+                                    <input type="radio" name="gender" value="male">
+                                    <span><i class="fas fa-male"></i> Herren</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calendar -->
+                    <div class="calendar-section">
+                        <h3>Wählen Sie Datum und Zeit</h3>
+                        <div class="calendar-container">
+                            <div class="calendar-header">
+                                <button class="nav-btn" onclick="previousMonth()">&lt;</button>
+                                <h4 id="currentMonth"></h4>
+                                <button class="nav-btn" onclick="nextMonth()">&gt;</button>
+                            </div>
+                            <div class="calendar-grid" id="calendarGrid"></div>
+                        </div>
+
+                        <div class="time-slots" id="timeSlots">
+                            <h4>Verfügbare Zeiten</h4>
+                            <div class="slots-container" id="slotsContainer">
+                                <p>Bitte wählen Sie zuerst ein Datum</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking Summary -->
+                <div class="booking-summary" id="bookingSummary" style="display: none;">
+                    <h3>Terminübersicht</h3>
+                    <div class="summary-details">
+                        <p><strong>Behandlung:</strong> <span id="selectedService"></span></p>
+                        <p><strong>Datum:</strong> <span id="selectedDate"></span></p>
+                        <p><strong>Zeit:</strong> <span id="selectedTime"></span></p>
+                        <p><strong>Dauer:</strong> <span id="selectedDuration"></span></p>
+                        <p><strong>Preis:</strong> <span id="selectedPrice"></span></p>
+                    </div>
+
+                    <div class="contact-form">
+                        <h4>Ihre Kontaktdaten</h4>
+                        <input type="text" placeholder="Vor- und Nachname" required>
+                        <input type="tel" placeholder="Telefonnummer" required>
+                        <input type="email" placeholder="E-Mail Adresse" required>
+                        <textarea placeholder="Besondere Wünsche oder Anmerkungen"></textarea>
+                        <button class="confirm-booking">Termin bestätigen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact & Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4><i class="fas fa-cut"></i> Maria's Coiffeur</h4>
+                    <p>Ihr persönlicher Salon für Schönheit & Stil</p>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-map-marker-alt"></i> Kontakt</h4>
+                    <p>Musterstrasse 123<br>8000 Zürich</p>
+                    <p><i class="fas fa-phone"></i> +41 44 123 45 67</p>
+                    <p><i class="fas fa-envelope"></i> info@marias-coiffeur.ch</p>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-clock"></i> Öffnungszeiten</h4>
+                    <p>Mo - Fr: 09:00 - 18:00<br>
+                       Sa: 08:00 - 16:00<br>
+                       So: Nach Vereinbarung</p>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-share-alt"></i> Folgen Sie uns</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Maria's Coiffeur. Alle Rechte vorbehalten.</p>
+                <a href="#" class="back-to-top">
+                    <i class="fas fa-chevron-up"></i>
+                    Nach oben
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced JavaScript Animations and Interactions
+
+        // Smooth scrolling for navigation links with offset for fixed navbar
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = 120; // Increased height offset for navigation
+                    const targetPosition = target.offsetTop - navHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect with enhanced animations
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.main-nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animatable elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.pricing-card, .about-card, .feature, .gallery-item, .product-card, .timeline-item');
+            animateElements.forEach(el => {
+                el.classList.add('animate-element');
+                observer.observe(el);
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Typing animation for hero text
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing animation when page loads
+        window.addEventListener('load', function() {
+            const heroTitle = document.querySelector('.hero h1');
+            if (heroTitle) {
+                const originalText = heroTitle.textContent;
+                setTimeout(() => {
+                    typeWriter(heroTitle, originalText, 150);
+                }, 1000);
+            }
+        });
+
+        // Floating animation for pricing cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const pricingCards = document.querySelectorAll('.pricing-card');
+            pricingCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+                card.classList.add('float-animation');
+            });
+        });
+
+        // Gallery hover effects with enhanced animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            galleryItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                    this.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+                });
+
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+
+        // Product cards pulse animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('pulse-animation');
+                }, index * 300);
+            });
+        });
+
+        // Scroll progress indicator
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = (scrollTop / scrollHeight) * 100;
+
+            let progressBar = document.querySelector('.scroll-progress');
+            if (!progressBar) {
+                progressBar = document.createElement('div');
+                progressBar.className = 'scroll-progress';
+                document.body.appendChild(progressBar);
+            }
+            progressBar.style.width = scrollPercent + '%';
+        });
+
+        // Enhanced CTA button animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctaButton = document.querySelector('.cta-button');
+            if (ctaButton) {
+                ctaButton.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px) scale(1.05)';
+                    this.style.boxShadow = '0 15px 50px rgba(214, 51, 132, 0.4)';
+                });
+
+                ctaButton.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = '0 8px 30px rgba(139, 69, 19, 0.12)';
+                });
+            }
+        });
+
+        // Timeline animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-50px)';
+                item.style.transition = 'all 0.6s ease';
+
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, index * 200);
+            });
+        });
+
+        // Social links hover animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const socialLinks = document.querySelectorAll('.social-links a');
+            socialLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) rotate(360deg)';
+                    this.style.transition = 'all 0.5s ease';
+                });
+
+                link.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) rotate(0deg)';
+                });
+            });
+        });
+
+        // Loading screen animation
+        window.addEventListener('load', function() {
+            const loader = document.createElement('div');
+            loader.className = 'page-loader';
+            loader.innerHTML = `
+                <div class="loader-content">
+                    <i class="fas fa-cut loader-icon"></i>
+                    <h3>Maria's Coiffeur</h3>
+                    <div class="loader-bar">
+                        <div class="loader-progress"></div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(loader);
+
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.remove();
+                }, 500);
+            }, 2000);
+        });
+
+        // Booking System
+        let currentDate = new Date();
+        let selectedService = null;
+        let selectedDate = null;
+        let selectedTime = null;
+        let selectedGender = 'female';
+
+        // Service durations in minutes (men need 15 minutes less)
+        const serviceDurations = {
+            'wash-cut': { female: 60, male: 45 },
+            'wash-cut-style': { female: 90, male: 75 },
+            'coloring': { female: 60, male: 45 },
+            'perm': { female: 120, male: 105 }
+        };
+
+        // Working hours (9:00 - 18:00)
+        const workingHours = {
+            start: 9,
+            end: 18
+        };
+
+        function openBookingModal() {
+            document.getElementById('bookingModal').style.display = 'block';
+            initializeCalendar();
+            setupServiceSelection();
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+            resetBooking();
+        }
+
+        function resetBooking() {
+            selectedService = null;
+            selectedDate = null;
+            selectedTime = null;
+            document.getElementById('bookingSummary').style.display = 'none';
+            document.querySelectorAll('.service-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+        }
+
+        function setupServiceSelection() {
+            document.querySelectorAll('.service-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    document.querySelectorAll('.service-option').forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedService = {
+                        type: this.dataset.service,
+                        name: this.querySelector('h4').textContent,
+                        basePrice: parseInt(this.dataset.price),
+                        baseDuration: parseInt(this.dataset.duration)
+                    };
+                    updateTimeSlots();
+                });
+            });
+
+            document.querySelectorAll('input[name="gender"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    selectedGender = this.value;
+                    updateServiceDisplay();
+                    updateTimeSlots();
+                    if (selectedService && selectedDate && selectedTime) {
+                        showBookingSummary();
+                    }
+                });
+            });
+
+            updateServiceDisplay(); // Initial display update
+        }
+
+        function updateServiceDisplay() {
+            // Update service option displays based on selected gender
+            const serviceOptions = document.querySelectorAll('.service-option');
+            serviceOptions.forEach(option => {
+                const serviceType = option.dataset.service;
+                const basePrice = parseInt(option.dataset.price);
+                const femaleDuration = serviceDurations[serviceType].female;
+                const maleDuration = serviceDurations[serviceType].male;
+
+                const price = selectedGender === 'male' ? Math.round(basePrice * 0.85) : basePrice;
+                const timeText = option.querySelector('.service-time');
+
+                // Format durations
+                const formatDuration = (minutes) => {
+                    const hours = Math.floor(minutes / 60);
+                    const mins = minutes % 60;
+                    if (hours > 0 && mins > 0) {
+                        return `${hours}h ${mins}min`;
+                    } else if (hours > 0) {
+                        return `${hours}h`;
+                    } else {
+                        return `${mins}min`;
+                    }
+                };
+
+                const femaleTime = formatDuration(femaleDuration);
+                const maleTime = formatDuration(maleDuration);
+
+                timeText.innerHTML = `Damen: ${femaleTime} | Herren: ${maleTime} - ab CHF ${price}.-`;
+            });
+        }
+
+        function initializeCalendar() {
+            updateCalendarDisplay();
+        }
+
+        function updateCalendarDisplay() {
+            const monthNames = ["Januar", "Februar", "März", "April", "Mai", "Juni",
+                "Juli", "August", "September", "Oktober", "November", "Dezember"];
+
+            document.getElementById('currentMonth').textContent =
+                `${monthNames[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+
+            generateCalendarGrid();
+        }
+
+        function generateCalendarGrid() {
+            const grid = document.getElementById('calendarGrid');
+            grid.innerHTML = '';
+
+            // Day headers
+            const dayHeaders = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
+            dayHeaders.forEach(day => {
+                const dayElement = document.createElement('div');
+                dayElement.className = 'calendar-day header';
+                dayElement.textContent = day;
+                grid.appendChild(dayElement);
+            });
+
+            // Get first day of month and number of days
+            const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+            const lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+            const startDate = new Date(firstDay);
+
+            // Adjust to Monday start
+            const dayOfWeek = (firstDay.getDay() + 6) % 7;
+            startDate.setDate(startDate.getDate() - dayOfWeek);
+
+            // Generate calendar days
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            for (let i = 0; i < 42; i++) {
+                const date = new Date(startDate);
+                date.setDate(startDate.getDate() + i);
+
+                const dayElement = document.createElement('div');
+                dayElement.className = 'calendar-day';
+                dayElement.textContent = date.getDate();
+
+                if (date.getMonth() === currentDate.getMonth()) {
+                    if (date >= today && date.getDay() !== 0) { // Not Sunday and not past
+                        dayElement.classList.add('available');
+                        dayElement.addEventListener('click', () => selectDate(date));
+                    } else {
+                        dayElement.classList.add('past');
+                    }
+                }
+
+                grid.appendChild(dayElement);
+            }
+        }
+
+        function selectDate(date) {
+            selectedDate = date;
+            document.querySelectorAll('.calendar-day').forEach(day => {
+                day.classList.remove('selected');
+            });
+            event.target.classList.add('selected');
+            updateTimeSlots();
+        }
+
+        function updateTimeSlots() {
+            const container = document.getElementById('slotsContainer');
+
+            if (!selectedDate || !selectedService) {
+                container.innerHTML = '<p>Bitte wählen Sie zuerst Behandlung und Datum</p>';
+                return;
+            }
+
+            const duration = serviceDurations[selectedService.type][selectedGender];
+            const slots = generateTimeSlots(selectedDate, duration);
+
+            container.innerHTML = '';
+            slots.forEach(slot => {
+                const slotElement = document.createElement('div');
+                slotElement.className = `time-slot ${slot.available ? '' : 'unavailable'}`;
+                slotElement.textContent = slot.time;
+
+                if (slot.available) {
+                    slotElement.addEventListener('click', () => selectTimeSlot(slot.time, slotElement));
+                }
+
+                container.appendChild(slotElement);
+            });
+        }
+
+        function generateTimeSlots(date, duration) {
+            const slots = [];
+            const startHour = workingHours.start;
+            const endHour = workingHours.end;
+
+            // Generate slots every 15 minutes
+            for (let hour = startHour; hour < endHour; hour++) {
+                for (let minute = 0; minute < 60; minute += 15) {
+                    const slotTime = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
+                    const slotEnd = new Date(date);
+                    slotEnd.setHours(hour, minute + duration + 15); // Include 15min cleanup
+
+                    // Check if slot fits within working hours
+                    const available = slotEnd.getHours() <= endHour;
+
+                    slots.push({
+                        time: slotTime,
+                        available: available
+                    });
+                }
+            }
+
+            return slots;
+        }
+
+        function selectTimeSlot(time, element) {
+            selectedTime = time;
+            document.querySelectorAll('.time-slot').forEach(slot => {
+                slot.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            showBookingSummary();
+        }
+
+        function showBookingSummary() {
+            if (!selectedService || !selectedDate || !selectedTime) return;
+
+            const duration = serviceDurations[selectedService.type][selectedGender];
+            const price = selectedGender === 'male' ?
+                Math.round(selectedService.basePrice * 0.85) : selectedService.basePrice;
+
+            // Format duration properly
+            const hours = Math.floor(duration / 60);
+            const minutes = duration % 60;
+            let durationText = '';
+            if (hours > 0) {
+                durationText += `${hours}h`;
+                if (minutes > 0) {
+                    durationText += ` ${minutes}min`;
+                }
+            } else {
+                durationText = `${minutes}min`;
+            }
+
+            document.getElementById('selectedService').textContent = selectedService.name;
+            document.getElementById('selectedDate').textContent = selectedDate.toLocaleDateString('de-CH');
+            document.getElementById('selectedTime').textContent = selectedTime;
+            document.getElementById('selectedDuration').textContent = durationText;
+            document.getElementById('selectedPrice').textContent = `CHF ${price}.-`;
+
+            document.getElementById('bookingSummary').style.display = 'block';
+        }
+
+        function previousMonth() {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            updateCalendarDisplay();
+        }
+
+        function nextMonth() {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            updateCalendarDisplay();
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target === modal) {
+                closeBookingModal();
+            }
+        });
+    </script>
+</body>
+</html>
