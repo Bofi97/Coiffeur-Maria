@@ -1395,13 +1395,30 @@
             // Fix gender buttons being covered on mobile
             function fixMobileGenderButtons() {
                 if (window.innerWidth <= 768) {
+                    // Fix gender selection section
+                    const genderSelection = document.querySelector('.gender-selection');
+                    if (genderSelection) {
+                        genderSelection.style.marginBottom = '40px';
+                        genderSelection.style.paddingBottom = '30px';
+                        genderSelection.style.position = 'relative';
+                        genderSelection.style.zIndex = '10';
+                    }
+
+                    // Fix gender buttons
                     const genderBtns = document.querySelectorAll('.gender-btn');
                     genderBtns.forEach(btn => {
                         btn.style.position = 'relative';
-                        btn.style.zIndex = '1000';
+                        btn.style.zIndex = '100';
                         btn.style.pointerEvents = 'auto';
                         btn.style.minHeight = '70px';
+                        btn.style.marginBottom = '10px';
                     });
+
+                    // Ensure content has enough padding
+                    const bookingContent = document.querySelector('.booking-content');
+                    if (bookingContent) {
+                        bookingContent.style.paddingBottom = '180px';
+                    }
                 }
             }
 
