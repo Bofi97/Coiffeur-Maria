@@ -397,6 +397,69 @@
             navMenu.classList.toggle('active');
         });
 
+        // Mobile Touch Support for Gallery Items
+        function isMobile() {
+            return window.innerWidth <= 768 || 'ontouchstart' in window;
+        }
+
+        // Add click handlers for mobile
+        function setupMobileInteraction() {
+            document.querySelectorAll('.sold-item').forEach(item => {
+                if (isMobile()) {
+                    // Add touch indicator
+                    item.style.position = 'relative';
+
+                    item.addEventListener('click', function(e) {
+                        // Don't trigger if clicking on buy button
+                        if (e.target.classList.contains('buy-btn') || e.target.closest('.buy-btn')) {
+                            return;
+                        }
+
+                        // For very small screens, overlays are always visible
+                        if (window.innerWidth <= 480) {
+                            return;
+                        }
+
+                        // Toggle overlay visibility
+                        const overlay = this.querySelector('.sold-overlay');
+                        const isVisible = overlay.style.transform === 'translateY(0px)';
+
+                        // Hide all other overlays first
+                        document.querySelectorAll('.sold-overlay').forEach(o => {
+                            if (o !== overlay) {
+                                o.style.transform = 'translateY(100%)';
+                            }
+                        });
+
+                        // Show this overlay if it wasn't visible
+                        if (!isVisible) {
+                            overlay.style.transform = 'translateY(0px)';
+                            // Add visual feedback
+                            this.style.transform = 'scale(1.02)';
+                            setTimeout(() => {
+                                this.style.transform = 'scale(1)';
+                            }, 200);
+                        } else {
+                            overlay.style.transform = 'translateY(100%)';
+                        }
+                    });
+
+                    // Add touch feedback
+                    item.addEventListener('touchstart', function() {
+                        this.style.opacity = '0.8';
+                    });
+
+                    item.addEventListener('touchend', function() {
+                        this.style.opacity = '1';
+                    });
+                }
+            });
+        }
+
+        // Setup mobile interaction on load and resize
+        setupMobileInteraction();
+        window.addEventListener('resize', setupMobileInteraction);
+
         // Filter Functionality
         const filterButtons = document.querySelectorAll('.filter-btn');
         const soldItems = document.querySelectorAll('.sold-item');
