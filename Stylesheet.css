@@ -2881,14 +2881,40 @@ html {
     }
 
     .gender-options {
-        flex-direction: column;
-        gap: 10px;
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 10px !important;
+        width: 100% !important;
     }
 
     .gender-btn {
-        flex-direction: row;
-        justify-content: center;
-        width: 100%;
+        flex: 1 !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: auto !important;
+        min-height: 80px !important;
+        padding: 12px 8px !important;
+        font-size: 0.9rem !important;
+        position: relative !important;
+        z-index: 1000 !important;
+        pointer-events: auto !important;
+        touch-action: manipulation !important;
+    }
+
+    .gender-btn i {
+        font-size: 1.2rem !important;
+        margin-bottom: 5px !important;
+    }
+
+    .gender-btn span {
+        font-size: 0.85rem !important;
+        font-weight: 600 !important;
+    }
+
+    .gender-btn small {
+        font-size: 0.7rem !important;
+        margin-top: 2px !important;
     }
 
     .booking-footer {
@@ -3037,7 +3063,45 @@ html {
 
     /* Ensure content doesn't get hidden behind fixed footer */
     .booking-content {
-        padding-bottom: 120px;
+        padding-bottom: 180px;
+    }
+
+    /* Fix gender selection being covered by footer */
+    .gender-selection {
+        margin-bottom: 40px !important;
+        padding-bottom: 30px !important;
+        position: relative !important;
+        z-index: 10 !important;
+    }
+
+    /* Mobile Gender Button Fix */
+    .gender-btn {
+        min-height: 70px !important;
+        padding: 12px 8px !important;
+        flex: 1 !important;
+        position: relative !important;
+        z-index: 100 !important;
+        margin-bottom: 10px !important;
+    }
+
+    /* Fix gender buttons on mobile */
+    .gender-options {
+        display: flex !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+
+    .gender-btn {
+        flex: 1 !important;
+        min-height: 70px !important;
+        padding: 10px !important;
+        font-size: 0.9rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
     /* Fix button overlap issue */
@@ -3052,6 +3116,35 @@ html {
         min-height: 80px;
         max-height: 120px;
         overflow: hidden;
+    }
+
+    /* Fix gender buttons being covered on mobile */
+    .gender-selection {
+        position: relative !important;
+        z-index: 10 !important;
+        margin: 20px 0 !important;
+        padding: 15px !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-radius: 10px !important;
+    }
+
+    .gender-options {
+        position: relative !important;
+        z-index: 11 !important;
+        display: flex !important;
+        gap: 10px !important;
+    }
+
+    .gender-btn {
+        position: relative !important;
+        z-index: 12 !important;
+        flex: 1 !important;
+        min-height: 70px !important;
+        padding: 12px 8px !important;
+        pointer-events: auto !important;
+        touch-action: manipulation !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 }
 
@@ -3992,14 +4085,20 @@ html {
     }
 
     .gender-options {
-        flex-direction: column;
-        gap: 10px;
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 10px !important;
+        width: 100% !important;
     }
 
     .gender-btn {
-        flex-direction: row;
-        justify-content: center;
-        width: 100%;
+        flex: 1 !important;
+        min-height: 80px !important;
+        padding: 12px 8px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
 
     .booking-footer {
