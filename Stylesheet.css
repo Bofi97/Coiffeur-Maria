@@ -1007,19 +1007,25 @@ section {
     }
 
     .hero {
-        height: 80vh;
+        height: 100vh;
         padding: 0 20px;
-        /* Android safe area */
-        padding-top: max(20px, env(safe-area-inset-top));
+        /* Android safe area + navigation space */
+        padding-top: max(120px, calc(env(safe-area-inset-top) + 120px));
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .hero-content {
         padding: 0;
+        text-align: center;
+        width: 100%;
     }
 
     .logo {
         flex-direction: column;
         gap: 10px;
+        margin-bottom: 20px;
     }
 
     .logo i {
@@ -1027,15 +1033,35 @@ section {
     }
 
     h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        margin-bottom: 15px;
     }
 
     .hero-subtitle {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        margin-bottom: 15px;
     }
 
     .hero-description {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+        line-height: 1.5;
+    }
+
+    /* CTA Button Mobile */
+    .cta-button {
+        padding: 18px 30px;
+        font-size: 1.1rem;
+        min-height: 50px;
+        border-radius: 25px;
+        /* Android touch improvements */
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+        cursor: pointer;
+        /* Ensure button is clickable */
+        pointer-events: auto;
+        z-index: 10;
+        position: relative;
     }
 
     /* Fixed Navigation for Mobile with Android fixes */
@@ -1053,47 +1079,59 @@ section {
     .nav-container {
         flex-direction: column;
         height: auto;
-        padding: 15px 20px;
+        padding: 10px 15px;
         max-width: 100%;
         width: 100%;
         box-sizing: border-box;
     }
 
+    .nav-logo {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+        text-align: center;
+    }
+
     .nav-menu {
-        gap: 12px;
-        margin-top: 15px;
+        gap: 8px;
+        margin-top: 8px;
         flex-wrap: wrap;
         justify-content: center;
         width: 100%;
     }
 
     .nav-menu a {
-        font-size: 0.85rem;
-        padding: 10px 15px;
-        border-radius: 20px;
+        font-size: 0.75rem;
+        padding: 6px 10px;
+        border-radius: 15px;
         background: rgba(214, 51, 132, 0.1);
         border: 1px solid rgba(214, 51, 132, 0.3);
-        min-height: 44px; /* Android touch target */
+        min-height: 32px;
         display: flex;
         align-items: center;
         justify-content: center;
         box-sizing: border-box;
         -webkit-tap-highlight-color: transparent;
+        gap: 4px;
     }
 
-    /* Adjust scroll margins for mobile nav */
+    /* Adjust scroll margins for mobile nav - Kompakter */
     section {
-        scroll-margin-top: 140px;
-        padding-top: 140px;
+        scroll-margin-top: 80px;
+        padding-top: 80px;
     }
 
     .section-header {
-        scroll-margin-top: 140px;
+        scroll-margin-top: 80px;
+        margin-bottom: 30px;
     }
 
     .pricing-section {
-        scroll-margin-top: 140px;
-        padding-top: 160px;
+        scroll-margin-top: 80px;
+        padding-top: 100px;
+    }
+
+    .pricing-section .section-header {
+        margin-bottom: 25px;
     }
 
     /* Grid Layouts */
@@ -1371,27 +1409,37 @@ section {
     }
 
     .hero {
-        height: 70vh;
+        height: 100vh;
+        padding-top: max(100px, calc(env(safe-area-inset-top) + 100px));
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .cta-button {
-        padding: 15px 25px;
-        font-size: 1rem;
+        padding: 18px 30px;
+        font-size: 1.1rem;
+        min-height: 50px;
+        /* Extra mobile touch improvements */
+        -webkit-tap-highlight-color: rgba(214, 51, 132, 0.3);
+        -webkit-user-select: none;
+        user-select: none;
+        /* Ensure it's always clickable */
+        pointer-events: auto !important;
+        z-index: 100;
+        position: relative;
     }
 
     /* Extra mobile spacing */
     section {
-        scroll-margin-top: 160px;
-        padding-top: 160px;
+        scroll-margin-top: 90px;
+        padding-top: 90px;
     }
 
     .pricing-section {
-        scroll-margin-top: 160px;
-        padding-top: 180px;
+        scroll-margin-top: 90px;
+        padding-top: 110px;
     }
 
     .pricing-card,
@@ -1459,17 +1507,23 @@ section {
 
     /* Modal mobile improvements for very small screens */
     .modal {
-        padding: 5px;
+        padding: 0;
+        /* Ensure modal is always on top and clickable */
+        z-index: 99999 !important;
     }
 
     .modal-content {
         width: 100%;
         margin: 0;
-        border-radius: 8px;
+        border-radius: 0;
         max-height: 100vh;
         /* Full screen on very small devices */
         height: 100vh;
         overflow-y: auto;
+        border: none;
+        /* Ensure modal content is clickable */
+        pointer-events: auto;
+        touch-action: manipulation;
     }
 
     .modal-header {
@@ -1765,6 +1819,8 @@ html {
     /* Android scroll fix */
     -webkit-overflow-scrolling: touch;
     overflow-y: auto;
+    /* Prevent body scroll when modal is open */
+    overscroll-behavior: contain;
 }
 
 .modal-content {
@@ -1781,6 +1837,8 @@ html {
     /* Android scroll improvements */
     -webkit-overflow-scrolling: touch;
     position: relative;
+    /* Ensure modal is clickable */
+    pointer-events: auto;
 }
 
 .modal-header {
