@@ -36,6 +36,7 @@
                 <i class="fas fa-cut"></i>
                 <span>Maria</span>
             </div>
+            <!-- Desktop Menu -->
             <ul class="nav-menu">
                 <li><a href="#Kosten"><i class="fas fa-euro-sign"></i> Preise</a></li>
                 <li><a href="#Über-mich"><i class="fas fa-user"></i> Über mich</a></li>
@@ -43,6 +44,90 @@
                 <li><a href="sold-pictures.html"><i class="fas fa-shopping-cart"></i> Bilder Shop</a></li>
                 <li><a href="#Shop"><i class="fas fa-shopping-bag"></i> Shop</a></li>
             </ul>
+
+            <!-- Mobile Menu Button -->
+            <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <div class="mobile-menu-header">
+                <div class="mobile-logo">
+                    <i class="fas fa-cut"></i>
+                    <span>Maria's Coiffeur</span>
+                </div>
+                <button class="mobile-close-btn" onclick="closeMobileMenu()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="mobile-menu-content">
+                <ul class="mobile-nav-list">
+                    <li>
+                        <a href="#Kosten" onclick="closeMobileMenu()">
+                            <i class="fas fa-euro-sign"></i>
+                            <span>Preise</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#Über-mich" onclick="closeMobileMenu()">
+                            <i class="fas fa-user"></i>
+                            <span>Über mich</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#Bilder" onclick="closeMobileMenu()">
+                            <i class="fas fa-images"></i>
+                            <span>Galerie</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sold-pictures.html" onclick="closeMobileMenu()">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Bilder Shop</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#Shop" onclick="closeMobileMenu()">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Shop</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="mobile-menu-actions">
+                    <button class="mobile-cta-btn" onclick="openBookingModal(); closeMobileMenu();">
+                        <i class="fas fa-calendar-alt"></i>
+                        Termin vereinbaren
+                    </button>
+
+                    <div class="mobile-contact">
+                        <h4>Schnellkontakt</h4>
+                        <a href="tel:+41791234567" class="mobile-contact-btn">
+                            <i class="fas fa-phone"></i>
+                            +41 79 123 45 67
+                        </a>
+                        <a href="https://wa.me/41791234567" class="mobile-contact-btn whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
     <!-- Pricing Section -->
