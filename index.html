@@ -159,12 +159,7 @@
                             <span class="credential"><i class="fas fa-graduation-cap"></i> Weiterbildungen in Italien</span>
                         </div>
                     </div>
-                    <div class="about-image">
-                        <div class="image-placeholder">
-                            <i class="fas fa-user-circle"></i>
-                            <p>Maria's Foto</p>
-                        </div>
-                    </div>
+
                 </div>
 
                 <!-- Mein Studio -->
@@ -328,9 +323,20 @@
                     <div class="product-image">
                         <i class="fas fa-pump-soap"></i>
                     </div>
-                    <h4>Premium Shampoo</h4>
-                    <p>Für alle Haartypen geeignet</p>
-                    <span class="price">CHF 28.-</span>
+                    <div class="product-content">
+                        <h4>Premium Shampoo</h4>
+                        <p>Sulfatfreies Shampoo für alle Haartypen. Reinigt sanft und spendet Feuchtigkeit.</p>
+                        <div class="product-features">
+                            <span class="feature"><i class="fas fa-leaf"></i> Natürlich</span>
+                            <span class="feature"><i class="fas fa-droplet"></i> Feuchtigkeitsspendend</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price">CHF 28.-</span>
+                            <button class="buy-btn" onclick="contactForProduct('Premium Shampoo')">
+                                <i class="fas fa-shopping-cart"></i> Bestellen
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="product-card">
                     <div class="product-image">
@@ -596,7 +602,8 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4><i class="fas fa-cut"></i> Maria's Coiffeur</h4>
-                    <p>Ihr persönlicher Salon für Schönheit & Stil</p>
+                    <p>Ihr persönlicher Salon für Schönheit & Stil in Zürich</p>
+                    <p>Seit über 15 Jahren verwandle ich die Träume meiner Kunden in wunderschöne Frisuren. Mit italienischem Temperament und Schweizer Präzision.</p>
                 </div>
                 <div class="footer-section">
                     <h4><i class="fas fa-map-marker-alt"></i> Kontakt</h4>
@@ -1437,6 +1444,171 @@
                 observer.observe(modal, { attributes: true });
             }
         });
+
+        // Enhanced purchase function for sold pictures
+        function openPurchaseModal(itemTitle, itemPrice, itemDescription) {
+            const modalHTML = `
+                <div id="purchaseModal" class="booking-modal" style="display: block;">
+                    <div class="booking-overlay" onclick="closePurchaseModal()"></div>
+                    <div class="booking-popup purchase-modal">
+                        <div class="booking-header">
+                            <div class="booking-title">
+                                <i class="fas fa-shopping-cart"></i>
+                                <h2>Kunstwerk kaufen</h2>
+                            </div>
+                            <button class="booking-close" onclick="closePurchaseModal()">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+
+                        <div class="booking-content" style="padding: 30px;">
+                            <div class="purchase-item-info">
+                                <h3><i class="fas fa-palette"></i> ${itemTitle}</h3>
+                                <p class="item-description">${itemDescription}</p>
+                                <div class="item-price">CHF ${itemPrice}.-</div>
+                                <p><i class="fas fa-info-circle"></i> Inklusive Rahmen und Versand</p>
+                            </div>
+
+                            <div class="purchase-form">
+                                <h4><i class="fas fa-user-edit"></i> Ihre Kontaktdaten</h4>
+
+                                <div class="form-group">
+                                    <label><i class="fas fa-user"></i> Vollständiger Name *</label>
+                                    <input type="text" id="buyerName" placeholder="Ihr vollständiger Name" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label><i class="fas fa-envelope"></i> E-Mail Adresse *</label>
+                                    <input type="email" id="buyerEmail" placeholder="ihre.email@beispiel.com" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label><i class="fas fa-phone"></i> Telefonnummer *</label>
+                                    <input type="tel" id="buyerPhone" placeholder="+41 XX XXX XX XX" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label><i class="fas fa-map-marker-alt"></i> Lieferadresse *</label>
+                                    <textarea id="buyerAddress" placeholder="Strasse, Hausnummer, PLZ Ort, Land" rows="3" required></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label><i class="fas fa-credit-card"></i> Bevorzugte Zahlungsart *</label>
+                                    <div class="payment-options">
+                                        <div class="payment-option">
+                                            <input type="radio" id="paymentBank" name="payment" value="bank" checked>
+                                            <label for="paymentBank">
+                                                <i class="fas fa-university"></i>
+                                                Banküberweisung
+                                            </label>
+                                        </div>
+                                        <div class="payment-option">
+                                            <input type="radio" id="paymentTwint" name="payment" value="twint">
+                                            <label for="paymentTwint">
+                                                <i class="fas fa-mobile-alt"></i>
+                                                TWINT
+                                            </label>
+                                        </div>
+                                        <div class="payment-option">
+                                            <input type="radio" id="paymentCash" name="payment" value="cash">
+                                            <label for="paymentCash">
+                                                <i class="fas fa-money-bill-wave"></i>
+                                                Barzahlung bei Abholung
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label><i class="fas fa-comment"></i> Nachricht (optional)</label>
+                                    <textarea id="buyerMessage" placeholder="Haben Sie Fragen oder besondere Wünsche?" rows="3"></textarea>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" class="btn-secondary" onclick="closePurchaseModal()">
+                                        <i class="fas fa-times"></i> Abbrechen
+                                    </button>
+                                    <button type="button" class="btn-primary" onclick="submitPurchaseRequest('${itemTitle}', '${itemPrice}')">
+                                        <i class="fas fa-paper-plane"></i> Kaufanfrage senden
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePurchaseModal() {
+            const modal = document.getElementById('purchaseModal');
+            if (modal) {
+                modal.remove();
+                document.body.style.overflow = '';
+            }
+        }
+
+        function submitPurchaseRequest(itemTitle, itemPrice) {
+            const name = document.getElementById('buyerName').value;
+            const email = document.getElementById('buyerEmail').value;
+            const phone = document.getElementById('buyerPhone').value;
+            const address = document.getElementById('buyerAddress').value;
+            const payment = document.querySelector('input[name="payment"]:checked').value;
+            const message = document.getElementById('buyerMessage').value;
+
+            if (!name || !email || !phone || !address) {
+                alert('Bitte füllen Sie alle Pflichtfelder aus.');
+                return;
+            }
+
+            const paymentMethods = {
+                'bank': 'Banküberweisung',
+                'twint': 'TWINT',
+                'cash': 'Barzahlung bei Abholung'
+            };
+
+            const whatsappMessage = `🎨 *KAUFANFRAGE KUNSTWERK*
+
+📋 *Kunstwerk:* ${itemTitle}
+💰 *Preis:* CHF ${itemPrice}.-
+
+👤 *Käufer:*
+Name: ${name}
+E-Mail: ${email}
+Telefon: ${phone}
+
+📍 *Lieferadresse:*
+${address}
+
+💳 *Zahlungsart:* ${paymentMethods[payment]}
+
+${message ? `💬 *Nachricht:*\n${message}` : ''}
+
+Vielen Dank für Ihr Interesse! Ich melde mich schnellstmöglich bei Ihnen.`;
+
+            const whatsappUrl = `https://wa.me/41791234567?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappUrl, '_blank');
+
+            const modal = document.getElementById('purchaseModal');
+            const content = modal.querySelector('.booking-content');
+            content.innerHTML = `
+                <div class="purchase-success">
+                    <h4><i class="fas fa-check-circle"></i> Kaufanfrage gesendet!</h4>
+                    <p>Vielen Dank für Ihr Interesse an "${itemTitle}".</p>
+                    <p>Ihre Anfrage wurde erfolgreich übermittelt.</p>
+                    <div class="contact-info">
+                        <p><strong>Ich melde mich innerhalb von 24 Stunden bei Ihnen!</strong></p>
+                        <p><i class="fas fa-phone"></i> +41 79 123 45 67</p>
+                        <p><i class="fas fa-envelope"></i> maria@coiffeur.ch</p>
+                    </div>
+                    <button class="btn-primary" onclick="closePurchaseModal()" style="margin-top: 20px;">
+                        <i class="fas fa-check"></i> Verstanden
+                    </button>
+                </div>
+            `;
+        }
     </script>
 </body>
 </html>
